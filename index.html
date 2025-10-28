@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HJW PJ helps you create, grow and foster connections with your customers">
+    <title>HJW PJ - We build relationships</title>
+    
+    <!-- External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__brand">
+                <span class="header__service-text" aria-label="Our services">OUR SERVICES</span>
+                <h1 class="header__logo">
+                    <a href="#" class="header__logo-link" aria-label="HJW PJ homepage">HJW PJ</a>
+                </h1>
+            </div>
+            
+            <button 
+                class="hamburger-menu" 
+                id="hamburgerMenu"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+            >
+                <span class="hamburger-menu__line" aria-hidden="true"></span>
+                <span class="hamburger-menu__line" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main" role="main">
+        <div class="main__container">
+            <!-- Text Content Section -->
+            <section class="hero" aria-labelledby="hero-title">
+                <h2 id="hero-title" class="hero__title">We build relationships</h2>
+                <p class="hero__description">
+                    HJW PJ helps you create, grow and foster connections with your customers. 
+                    And we think we're pretty good at it.
+                </p>
+            </section>
+
+            <!-- Visual Diagram Section -->
+            <section class="diagram" aria-labelledby="diagram-title">
+                <h3 id="diagram-title" class="sr-only">Relationship Diagram</h3>
+                
+                <div class="venn-diagram" role="img" aria-label="Venn diagram showing company and client relationship">
+                    <div class="venn-diagram__circle venn-diagram__circle--left" aria-hidden="true"></div>
+                    <div class="venn-diagram__circle venn-diagram__circle--right" aria-hidden="true"></div>
+                </div>
+                
+                <div class="diagram-labels">
+                    <div class="diagram-labels__item diagram-labels__item--company">
+                        <div class="diagram-labels__line" aria-hidden="true"></div>
+                        <span class="diagram-labels__text">Your company</span>
+                    </div>
+                    <div class="diagram-labels__item diagram-labels__item--clients">
+                        <div class="diagram-labels__line" aria-hidden="true"></div>
+                        <span class="diagram-labels__text">Your clients</span>
+                    </div>
+                    <div class="diagram-labels__item diagram-labels__item--help">
+                        <div class="diagram-labels__line" aria-hidden="true"></div>
+                        <span class="diagram-labels__text">Where we can help</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

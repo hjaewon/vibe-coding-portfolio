@@ -1,0 +1,506 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ======================================== */
+:root {
+    /* Colors */
+    --color-primary: #333333;
+    --color-secondary: #888888;
+    --color-background: #FFFFFF;
+    --color-accent-pink: #E9729F;
+    --color-accent-teal: #66D9D9;
+    --color-accent-purple: #996699;
+    --color-line: #CCCCCC;
+    
+    /* Typography */
+    --font-family-primary: 'Inter', sans-serif;
+    --font-size-xs: 10px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 28px;
+    --font-size-2xl: 32px;
+    --font-size-3xl: 48px;
+    
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.6;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 60px;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --container-padding: 20px;
+    --container-padding-mobile: 15px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.8s ease-out;
+    
+    /* Z-index */
+    --z-header: 100;
+    --z-diagram: 1;
+    --z-diagram-overlap: 3;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: var(--line-height-normal);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ========================================
+   HEADER COMPONENT
+   ======================================== */
+.header {
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    z-index: var(--z-header);
+}
+
+.header__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header__service-text {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+    color: var(--color-secondary);
+    letter-spacing: 0.5px;
+}
+
+.header__logo {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.header__logo-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+.header__logo-link:hover {
+    color: var(--color-secondary);
+}
+
+/* ========================================
+   HAMBURGER MENU COMPONENT
+   ======================================== */
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: transform var(--transition-fast);
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.05);
+}
+
+.hamburger-menu__line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-normal);
+    transform-origin: center;
+}
+
+.hamburger-menu.active .hamburger-menu__line:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active .hamburger-menu__line:last-child {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ========================================
+   MAIN LAYOUT
+   ======================================== */
+.main {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.main__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-tight);
+}
+
+.hero__description {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-light);
+    color: var(--color-secondary);
+    line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   DIAGRAM SECTION
+   ======================================== */
+.diagram {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+/* ========================================
+   VENN DIAGRAM COMPONENT
+   ======================================== */
+.venn-diagram {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.venn-diagram__circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.venn-diagram__circle--left {
+    width: 240px;
+    height: 240px;
+    background-color: var(--color-accent-pink);
+    top: 150px;
+    left: 50px;
+    z-index: var(--z-diagram);
+}
+
+.venn-diagram__circle--right {
+    width: 240px;
+    height: 240px;
+    background-color: var(--color-accent-teal);
+    top: 50px;
+    right: 50px;
+    z-index: var(--z-diagram);
+}
+
+
+/* Animation for circles when visible */
+.venn-diagram__circle.animate {
+    opacity: 0.8;
+    transform: scale(1);
+}
+
+/* ========================================
+   DIAGRAM LABELS COMPONENT
+   ======================================== */
+.diagram-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.diagram-labels__item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.diagram-labels__line {
+    width: 95px;
+    height: 1px;
+}
+
+.diagram-labels__text {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-light);
+}
+
+.diagram-labels__item--company {
+    top: 370px;
+    left: 220px;
+}
+
+.diagram-labels__item--company .diagram-labels__line {
+    background-color: var(--color-accent-pink);
+    transform: rotate(40deg); /* Down-right angle */
+    transform-origin: left center;
+}
+
+.diagram-labels__item--company .diagram-labels__text {
+    color: var(--color-accent-pink);
+}
+
+.diagram-labels__item--clients {
+    top: 180px;
+    left: 440px;
+}
+
+.diagram-labels__item--clients .diagram-labels__line {
+    background-color: var(--color-accent-teal);
+    transform: rotate(40deg); /* Same direction as company label */
+    transform-origin: left center;
+}
+
+.diagram-labels__item--clients .diagram-labels__text {
+    color: var(--color-accent-teal);
+}
+
+.diagram-labels__item--help {
+    top: 270px;
+    left: 290px;
+}
+
+.diagram-labels__item--help .diagram-labels__line {
+    background-color: var(--color-secondary);
+    transform: rotate(40deg); /* Same direction as other labels */
+    transform-origin: left center;
+}
+
+.diagram-labels__item--help .diagram-labels__text {
+    color: var(--color-secondary);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet styles */
+@media (max-width: 768px) {
+    :root {
+        --container-padding: var(--container-padding-mobile);
+    }
+    
+    .header__container {
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .main__container {
+        gap: var(--spacing-xl);
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-md);
+    }
+    
+    .hero {
+        max-width: 100%;
+    }
+    
+    .diagram {
+        min-height: 300px;
+    }
+    
+    .venn-diagram {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .venn-diagram__circle--left,
+    .venn-diagram__circle--right {
+        width: 192px;
+        height: 192px;
+    }
+    
+    .venn-diagram__circle--left {
+        top: 120px;
+        left: 40px;
+    }
+    
+    .venn-diagram__circle--right {
+        top: 40px;
+        right: 40px;
+    }
+    
+    .diagram-labels__item--company {
+        top: 280px; /* Start from pink circle edge */
+        left: 210px; /* Start from pink circle right edge */
+    }
+    
+    .diagram-labels__item--clients {
+        top: 160px; /* Start from teal circle edge */
+        left: 280px; /* Move further right to circle edge */
+    }
+    
+    .diagram-labels__item--help {
+        top: 210px; /* Move to where clients was */
+        left: 230px; /* Same horizontal position as clients */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-base);
+    }
+    
+    .venn-diagram {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .venn-diagram__circle--left,
+    .venn-diagram__circle--right {
+        width: 144px;
+        height: 144px;
+    }
+    
+    .venn-diagram__circle--left {
+        top: 90px;
+        left: 30px;
+    }
+    
+    .venn-diagram__circle--right {
+        top: 30px;
+        right: 30px;
+    }
+    
+    .diagram-labels__item--company {
+        top: 210px; /* Start from pink circle edge */
+        left: 150px; /* Start from pink circle right edge */
+    }
+    
+    .diagram-labels__item--clients {
+        top: 120px; /* Start from teal circle edge */
+        left: 210px; /* Move further right to circle edge */
+    }
+    
+    .diagram-labels__item--help {
+        top: 140px; /* Move to where clients was */
+        left: 174px; /* Same horizontal position as clients */
+    }
+    
+    .diagram-labels__line {
+        width: 95px;
+    }
+    
+    .diagram-labels__text {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.hamburger-menu:focus,
+.header__logo-link:focus {
+    outline: 2px solid var(--color-accent-pink);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-secondary: #000000;
+        --color-line: #000000;
+    }
+}
